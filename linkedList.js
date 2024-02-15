@@ -1,6 +1,6 @@
 "use strict"
 
-
+//test data
 const node1 = {
     data: "A",
     next: null,
@@ -124,16 +124,6 @@ class LinkedList {
             }
             node = node.next
         }
-
-        //Old
-        /*let node = this.head
-        while (node != null) {
-            if (node == nodeToDelete) {
-                node.prev.next = node.next
-                node.next = node.prev
-            }
-            node = node.next
-        }*/
     }
     insertBeforeNode(payload, existingNode) {
         const nodeToAdd = { data: payload, next: null, prev: null }
@@ -195,7 +185,7 @@ class LinkedList {
             node = node.next;
         }
     }
-    swapNodes(nodeA, nodeB) { //TODO does not work - is not implemented
+    /*swapNodes(nodeA, nodeB) { //TODO does not work - is not implemented
         //check if nodes exist and if the nodes are the same
         if (!nodeA || !nodeB || nodeA === nodeB) {
             console.log("something is wrong with the nodes");
@@ -203,7 +193,7 @@ class LinkedList {
         }
 
 
-    }
+    }*/
     nodeAt(index) {
         //return node on index
         let node = this.head
