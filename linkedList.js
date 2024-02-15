@@ -99,9 +99,32 @@ class LinkedList {
         return this.head
     }
 
-    removeNode(nodeToDelete) { //TODO CANNOT REMOVE FIRST AND LAST - tail and head should be updated accordingly
-        //find node
-        
+    removeNode(nodeToDelete) {
+        //check if head
+        if (nodeToDelete == this.head) {
+            this.head = this.head.next
+            this.head.prev = null
+            return
+        }
+        //check if tail
+        if (nodeToDelete == this.tail) {
+            console.log("this is tail");
+            this.tail = this.tail.prev
+            this.tail.next = null
+            return
+        }
+        //traverse through, find nodeToDelete, delete it, update refferences
+        let node = this.head
+        while (node != null) {
+            if (node == nodeToDelete) {
+                console.log("in the middle somewhere");
+                node.prev.next = node.next
+                node.next.prev = node.prev
+                return
+            }
+            node = node.next
+        }
+
         //Old
         /*let node = this.head
         while (node != null) {
@@ -231,8 +254,6 @@ class LinkedList {
         let existingNode = this.nodeAt(index)
         this.insertBeforeNode(payload, existingNode)
     }
-
-
     dumpList() {
         let a_node = this.head;
         while (a_node != null) {
