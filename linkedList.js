@@ -108,7 +108,6 @@ class LinkedList {
         }
         //check if tail
         if (nodeToDelete == this.tail) {
-            console.log("this is tail");
             this.tail = this.tail.prev
             this.tail.next = null
             return
@@ -117,7 +116,6 @@ class LinkedList {
         let node = this.head
         while (node != null) {
             if (node == nodeToDelete) {
-                console.log("in the middle somewhere");
                 node.prev.next = node.next
                 node.next.prev = node.prev
                 return
